@@ -1,0 +1,79 @@
+.app-layout {
+	margin: 1%;
+   }
+   .app-logo {
+	width: 50px;
+	height: 50px;
+   }
+   .app-title {
+	font-size: 24px;
+	margin-left: 1%;
+   }
+   .app-header {
+	display: flex;
+	align-items: center;
+   }
+   .app-form {
+	margin-top: 3%;
+   }
+   form.form-main {
+	display: flex;
+   }
+   .form-flex-item {
+	width: 20%;
+	margin: 0px 1%;
+   }
+   input.date-input,
+   input[type="date"] {
+	display: block;
+	width: 100%;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+   }
+   input.date-input:focus,
+   input[type="date"]:focus {
+	color: #212529;
+	background-color: #fff;
+	border-color: #86b7fe;
+	outline: 0;
+	box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+   }
+   .app-tables {
+	padding: 1%;
+   }
+   .card-header.sms-eva-header,
+   .card-header.netbanking-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+   }
+   .app-netbanking-table,
+   .app-sms-table {
+	margin-top: 1%;
+   }
+   button.btn.btn-success.export-btn {
+	font-size: 0.7rem;
+	padding: 4px 6px;
+   }
+   .sms-eva-table-tile,
+   .sms-netbanking-table-tile {
+	margin: 0px;
+	font-size: 1rem;
+   }
+   .form-search-btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+   }
+   

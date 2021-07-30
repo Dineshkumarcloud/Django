@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#smseve-dt').DataTable();
+            $('#netbanking-dt').DataTable();
+        });
+    </script>
+    <title>HNW FORM</title>
+</head>
+
+<body>
+    <div class="app-layout">
+        <div class="app-header">
+            <img src="{% static 'home/img/hdfc_logo.png' %}" class="img-fluid app-logo" alt="hdfc-logo">
+            <h2 class="app-title">
+                Consent Repository
+            </h2>
+        </div>
+        <div class="app-form">
+            <form method="POST" class="form-main">
+                {% csrf_token %}
+                <div class="form-flex-item">
+                    <label class="visually-hidden" for="autoSizingInput">Name</label>
+                    <input type="text" name="Customer_ID" class="form-control" id="customer-id-input"
+                        placeholder="Enter Customer ID">
+                </div>
+                <div class="form-flex-item">
+                    <label class="visually-hidden" for="autoSizingInput">Name</label>
+                    <input type="text" name="Branch_Code" class="form-control" id="branch-code-input"
+                        placeholder="Enter Branch Code">
+                </div>
+                <div class="form-flex-item">
+                    <label class="visually-hidden" for="autoSizingSelect">Choose Channel</label>
+                    <select type="select" name="choose-channel-select" class="form-select" id="channel-select"
+                        aria-label="Default select example">
+                        <option name="option-selected" selected>Choose...</option>
+                        <option value="smseva" name="smseva"> SMS Eva</option>
+                        <option value="netbanking" name="netbanking"> Net Banking</option>
+                    </select>
+                </div>
+                <div class="form-flex-item" style="display: flex; align-items: center;">
+                    FROM:<input class="date-input" type="date" name="fromdate" />
+                </div>
+                <div class="form-flex-item" style="display: flex; align-items: center;">
+                    TO:<input class="date-input" type="date" name="todate" />
+                </div>
+
+                <!-- <input type="submit" value="search" size="20"/> -->
+
+                <!-- <input class="date-input" type="text" name="daterange" value="01/01/2021 - 07/19/2021" /> -->
+        </div>
+        <!--needs to command-->
+        <div style="display: flex;justify-content: center;margin-top: 15px;" class="form-search-btn">
+            <button type="submit" class="btn btn-primary search-btn">Search</button>
+        </div>
+        </form>
+
+        <!-- <div class=" form-search-btn">
+                <button type="submit" class="btn btn-primary search-btn">Search</button>
+            </div> -->
+
+    </div>
+
+
+    <div class="app-tables">
+        <div class="app-sms-table">
+            <div class="card">
+                <div class="card-header sms-eva-header">
+                    <h5 class="sms-eva-table-tile"> SMS EVA </h5>
+                    <div class="form-export-btn">
+                        <a href="{% url 'export_excel_smseva' %}" download="excel">
+                            <button type="button" class="btn btn-success export-btn">Export</button></a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="smseve-dt"
+                            style="font-size: 1rem;white-space: nowrap;padding: 0px 0.5rem !important;"
+                            class="table table-striped table-sm rounded">
+                            <thead class="thead-light">
+                                <tr class="small-table">
+                                    <th>PseudoId</th>
+                                    <th>PcId</th>
+                                    <th>MobileNumber</th>
+                                    <th>Current Category</th>
+                                    <th>Eligible Category</th>
+                                    <th>Consent Of User</th>
+                                    <th>Consent Time</th>
+                                    <th>CustomerName</th>
+                                    <th>Existing Branch</th>
+                                    <th>Change Branch</th>
+                                    <th>Change Rm</th>
+                                    <th>Employee Code</th>
+                                    <th>State</th>
+                                    <th>City</th>
+                                    <th>Branch</th>
+                                    <th>Branch Code</th>
+                                    <th>Existing Branch Code</th>
+                                    <th>SessionID</th>
+                                    <th>IPaddress</th>
+                                    <th>Channel Remarks</th>
+                                    <th>Device</th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <!-- Item -->
+
+
+                                {%for row in smseva%}
+                                <tr class="small-table">
+                                    <td>{{row.pseudoId}}</td>
+                                    <td>{{row.pcId}}</td>
+                                    <td>{{row.mobilenumber}}</td>
+                                    <td>{{row.current_category}}</td>
+                                    <td>{{row.eligible_category}}</td>
+                                    <td>{{row.consent_of_user}}</td>
+                                    <td>{{row.consent_time}}</td>
+                                    <td>{{row.CustomerName}}</td>
+                                    <td>{{row.existing_branch}}</td>
+                                    <td>{{row.change_branch}}</td>
+                                    <td>{{row.change_rm}}</td>
+                                    <td>{{row.employee_code}}</td>
+                                    <td>{{row.state}}</td>
+                                    <td>{{row.city}}</td>
+                                    <td>{{row.branch }}</td>
+                                    <td>{{row.branch_code}}</td>
+                                    <td>{{row.existing_branch_code}}</td>
+                                    <td>{{row.sessionID}}</td>
+                                    <td>{{row.IPaddress}}</td>
+                                    <td>{{row.channel_remarks}}</td>
+                                    <td>{{row.device}}</td>
+                                </tr>
+                                {%endfor%}
+
+                                <!-- End of Item -->
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="app-netbanking-table">
+            <div class="card">
+                <div class="card-header netbanking-header">
+                    <h5 class="sms-netbanking-table-tile"> Net Banking </h5>
+                    <div class="form-export-btn">
+                        <a href="{% url 'export_excel_netbanking' %}" download="excel">
+                            <button type="button" class="btn btn-success export-btn">Export</button></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="netbanking-dt"
+                            style="font-size: 1rem;white-space: nowrap;padding: 0px 0.5rem !important;"
+                            class="table table-striped table-sm rounded">
+                            <thead class="thead-light">
+                                <tr class="small-table">
+                                    <!-- INCLUDE TABLE COLUMN -->
+                                    <th>Sr No</th>
+                                    <th>Promo Code</th>
+                                    <th>Cust Id</th>
+                                    <th>Customer Name</th>
+                                    <th>Eligible Programme</th>
+                                    <th>Account No</th>
+                                    <th>Home BranchName</th>
+                                    <th>Home BranchCode</th>
+                                    <th>CR programme RM Change</th>
+                                    <th>Credit Card</th>
+                                    <th>DC Upgrade</th>
+                                    <th>Selected Branchname</th>
+                                    <th>Selected Branchcode</th>
+                                    <th>Employee Code</th>
+                                    <th>Confirmation authorize</th>
+                                    <th>IP Address</th>
+                                    <th>Session Id</th>
+                                    <th>User Agent</th>
+                                    <th>Lead Date</th>
+                                    <th>Confirmation Authorize for Debit Card</th>
+                                    <th>Confirmation Authorize for Credit Card</th>
+                                </tr><br>
+                            </thead>
+                            <tbody>
+                                <!-- Item -->
+                                {%for row in netbank %}
+                                <tr class="small-table">
+                                    <!-- INCLUDE LOOP FOR TD -->
+                                    <td>{{row.Sr_No}}</td>
+                                    <td>{{row.Promo_code}}</td>
+                                    <td>{{row.Cust_Id}}</td>
+                                    <td>{{row.Customer_Name}}</td>
+                                    <td>{{row.Eligible_Programme}}</td>
+                                    <td>{{row.Account_no}}</td>
+                                    <td>{{row.Home_BranchName}}</td>
+                                    <td>{{row.Home_BranchCode}}</td>
+                                    <td>{{row.CR_programme_RM_Change}}</td>
+                                    <td>{{row.Credit_Card}}</td>
+                                    <td>{{row.DC_Upgrade}}</td>
+                                    <td>{{row.Selected_Branchname}}</td>
+                                    <td>{{row.Selected_Branchcode}}</td>
+                                    <td>{{row.Employee_Code}}</td>
+                                    <td>{{row.Confirmation_authorize}}</td>
+                                    <td>{{row.IP_Address}}</td>
+                                    <td>{{row.Session_Id}}</td>
+                                    <td>{{row.User_Agent}}</td>
+                                    <td>{{row.Lead_Date}}</td>
+                                    <td>{{row.Confirmation_Authorize_for_Debit_Card}}</td>
+                                    <td>{{row.Confirmation_Authorize_for_Credit_Card}}</td>
+                                </tr>
+                                {%endfor%}
+                                <!-- End of Item -->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
