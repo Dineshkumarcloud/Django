@@ -1,14 +1,11 @@
 Django==2.1.15
 django-admin-rangefilter==0.8.1
-django-excel==0.0.10
 django-filter==2.4.0
 django-globals==0.3.2
 django-mssql==1.8
 django-mssql-backend==2.8.1
 django-pandas==0.6.4
 django-pyodbc-azure==2.1.0.0
-et-xmlfile==1.1.0
-filelock==3.0.12
 mysql-connector==2.2.9
 mysql-connector-python==8.0.25
 mysql-connector-python-rf==2.2.2
