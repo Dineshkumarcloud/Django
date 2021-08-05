@@ -12,7 +12,6 @@ from io import BytesIO as IO
 from django.core.paginator import Paginator
 from django.http import StreamingHttpResponse
 from django.db.models import Q
-import dateutil.parser
 from django.utils.dateformat import DateFormat
 from django.core import serializers
 
