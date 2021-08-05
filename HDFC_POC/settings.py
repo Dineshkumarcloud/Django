@@ -73,6 +73,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'HDFC_POC.wsgi.application'
 
 
+#Install Apps
+Run pip install -r requirements.txt
+pip install -r requirements.txt
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
