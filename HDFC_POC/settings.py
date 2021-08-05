@@ -85,14 +85,28 @@ WSGI_APPLICATION = 'HDFC_POC.wsgi.application'
 #}
 
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'sql_server.pyodbc',
+#        'HOST': '127.0.0.1',
+#        'PORT': '1433',
+#        'NAME': 'test',
+#        'USER': 'sa',
+#        'PASSWORD': 'Intel@032',
+#        'OPTIONS': {
+#            'driver': 'ODBC Driver 17 for SQL Server',
+#        },
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'HOST': '127.0.0.1',
+        'HOST': 'hdfc-sql-server.database.windows.net',
         'PORT': '1433',
-        'NAME': 'test',
-        'USER': 'sa',
-        'PASSWORD': 'Intel@032',
+        'NAME': 'HDFC-DB',
+        'USER': 'sqladmin@hdfc-sql-server',
+        'PASSWORD': 'Admin@HDFC',
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
         },

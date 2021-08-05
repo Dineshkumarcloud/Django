@@ -97,13 +97,17 @@
                             <thead class="thead-light">
                                 <tr class="small-table">
                                     <th>PseudoId</th>
-                                    <th>PcId</th>
                                     <th>MobileNumber</th>
                                     <th>Current Category</th>
+                                    <th>PcId</th>
                                     <th>Eligible Category</th>
                                     <th>Consent Of User</th>
                                     <th>Consent Time</th>
                                     <th>CustomerName</th>
+                                    <th>SessionID</th>
+                                    <th>IPAddress</th>
+                                    <th>Channel_Remarks</th>
+                                    <th>Device</th>
                                     <th>Existing Branch</th>
                                     <th>Change Branch</th>
                                     <th>Change Rm</th>
@@ -113,11 +117,6 @@
                                     <th>Branch</th>
                                     <th>Branch Code</th>
                                     <th>Existing Branch Code</th>
-                                    <th>SessionID</th>
-                                    <th>IPaddress</th>
-                                    <th>Channel Remarks</th>
-                                    <th>Device</th>
-
                                 </tr>
 
                             </thead>
@@ -128,26 +127,26 @@
                                 {%for row in smseva%}
                                 <tr class="small-table">
                                     <td>{{row.pseudoId}}</td>
-                                    <td>{{row.pcId}}</td>
                                     <td>{{row.mobilenumber}}</td>
                                     <td>{{row.current_category}}</td>
+                                    <td>{{row.pcId}}</td>
                                     <td>{{row.eligible_category}}</td>
                                     <td>{{row.consent_of_user}}</td>
                                     <td>{{row.consent_time}}</td>
                                     <td>{{row.CustomerName}}</td>
+                                    <td>{{row.sessionID}}</td>
+                                    <td>{{row.IPaddress}}</td>
+                                    <td>{{row.channel_remarks}}</td>
+                                    <td>{{row.device}}</td>
                                     <td>{{row.existing_branch}}</td>
                                     <td>{{row.change_branch}}</td>
                                     <td>{{row.change_rm}}</td>
                                     <td>{{row.employee_code}}</td>
                                     <td>{{row.state}}</td>
                                     <td>{{row.city}}</td>
-                                    <td>{{row.branch }}</td>
+                                    <td>{{row.branch}}</td>
                                     <td>{{row.branch_code}}</td>
                                     <td>{{row.existing_branch_code}}</td>
-                                    <td>{{row.sessionID}}</td>
-                                    <td>{{row.IPaddress}}</td>
-                                    <td>{{row.channel_remarks}}</td>
-                                    <td>{{row.device}}</td>
                                 </tr>
                                 {%endfor%}
 
@@ -180,7 +179,7 @@
                                     <!-- INCLUDE TABLE COLUMN -->
                                     <th>Sr No</th>
                                     <th>Promo Code</th>
-                                    <th>Cust Id</th>
+                                    <th>Pseudo Id</th>
                                     <th>Customer Name</th>
                                     <th>Eligible Programme</th>
                                     <th>Account No</th>
@@ -206,9 +205,10 @@
                                 {%for row in netbank %}
                                 <tr class="small-table">
                                     <!-- INCLUDE LOOP FOR TD -->
+                                    
                                     <td>{{row.Sr_No}}</td>
                                     <td>{{row.Promo_code}}</td>
-                                    <td>{{row.Cust_Id}}</td>
+                                    <td>{{row.Pseudo_Id}}</td>
                                     <td>{{row.Customer_Name}}</td>
                                     <td>{{row.Eligible_Programme}}</td>
                                     <td>{{row.Account_no}}</td>
