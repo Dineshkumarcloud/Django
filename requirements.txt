@@ -1,1 +1,1 @@
-
+pip install django-pyodbc-azure
