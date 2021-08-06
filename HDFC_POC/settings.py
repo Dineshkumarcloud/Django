@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*11o!t*ephrm_f4i*hxh1mi_753ez7e%i6lw8c18tp=dit6=67'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hdfc-webapp.azurewebsites.net']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoisemiddleware.Whitenoisemiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,10 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HDFC_POC.wsgi.application'
 
-
-#Install Apps
-Run pip install -r requirements.txt
-pip install -r requirements.txt
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
