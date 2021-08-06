@@ -1,2 +1,2 @@
 django-pyodbc-azure==2.1.0.0
-pip install whitenoise==5.3.0
+whitenoise==5.3.0
